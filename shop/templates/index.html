@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-16">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Cá T'Espero</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../../static/img/favicon.png" rel="icon">
+  <link href="../../static/img/CTE-logo.png" rel="tab-logo">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../../static/css/main.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Yummy
+  * Updated: Jan 30 2024 with Bootstrap v5.3.2
+  * Template URL: https://bootstrapmade.com/yummy-bootstrap-restaurant-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+        <img src="../../static/img/xpress-logo.png" alt="">
+        <!-- <h1>Yummy<span>.</span></h1> -->
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}">Página Inicial</a></li>
+          <li><a href="{% url 'Menu' %}">O Nosso Menu</a></li>
+          <li><a href="{% url 'AboutUs' %}">Sobre Nós</a></li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'Reserve' %}">Reservar Uma Mesa</a></li>
+            <li class="dropdown"><span>{{ user.username }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i>
+              <ul>
+                <li><a href="{% url 'userProfile' %}">Perfil</a></li>
+                <li><a href="{% url 'Logout' %}">Logout</a></li>
+              </ul>
+            </li>
+          {% else %}
+            <a class="btn-book-a-table" href="{% url 'Login' %}">Login</a>
+          {% endif %}
+        </ul>
+      </nav><!-- .navbar -->
+
+      
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" class="hero d-flex align-items-center section-bg">
+    <div class="container">
+      <div class="row justify-content-between gy-5">
+        <div class="col-lg-5 order-2 order-lg-1 d-flex flex-column justify-content-center align-items-center align-items-lg-start text-center text-lg-start">
+          <h2 data-aos="fade-up">Cá T'Espero<br>Santiago de Piães</h2>
+          <p data-aos="fade-up" data-aos-delay="100">Bem-vindo ao website do Cá T'Espero, o restaurante mais prestigiado de Santiago de Piães. Aqui poderá ver o nosso menu assim como reservar uma mesa!</p>
+          <div class="d-flex" data-aos="fade-up" data-aos-delay="200">
+            <a href="{% url 'Reserve' %}" class="btn-book-a-table">Reserve Uma Mesa</a>
+          </div>
+        </div>
+        <div class="col-lg-5 order-1 order-lg-2 text-center text-lg-start">
+          <img src="../../static/img/ca-t-espero.png" class="img-fluid" alt="" data-aos="zoom-out" data-aos-delay="300">
+        </div>
+      </div>
+    </div>
+  </section><!-- End Hero Section -->
+
+  <main id="main">
+
+    <!-- ======= Why Us Section ======= -->
+    <section id="why-us" class="why-us section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="why-box">
+              <h3>Porquê escolher o Cá T'Espero?</h3>
+              <p>
+                Quem disse que comida boa é comida cara? No Cá T'Espero vai ter uma experiência gastronómica incrível sem precisar de gastar muito. 
+                A nossa chef habilidosa combina os melhores ingredientes e técnicas culinárias de excelência para criar pratos que desencadeiam explosões de sabor, 
+                proporcionando uma experiência única. Reserve a sua mesa agora mesmo pelo nosso site ou pelo telefone.
+      
+              </p>
+              <div class="text-center">
+                <a href="{% url 'AboutUs' %}" class="more-btn">Saiba Mais<i class="bx bx-chevron-right"></i></a>
+              </div>
+            </div>
+          </div><!-- End Why Box -->
+
+          <div class="col-lg-8 d-flex align-items-center">
+            <div class="row gy-4">
+
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-person-hearts"></i>
+                  <h4>Conforto</h4>
+                  <p>
+                    Do momento em que os clientes entram pela porta até o último gole de café, o nosso objetivo é garantir que cada detalhe contribua para uma sensação de conforto e bem-estar, 
+                    tornando a sua visita verdadeiramente memorável.
+                  </p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-award"></i>
+                  <h4>Inovação</h4>
+                  <p>
+                    Com uma combinação de pratos tradicionais reinventados e novas criações ousadas, o nosso restaurante oferece uma experiência culinária que celebra tanto a tradição quanto a inovação, 
+                    garantindo que haja algo para todos os gostos e preferências.
+                  </p>
+                </div>
+              </div><!-- End Icon Box -->
+
+              <div class="col-xl-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                  <i class="bi bi-inboxes"></i>
+                  <h4>Convidativo</h4>
+                  <p>
+                    A equipa atenciosa e prestativa do nosso restaurante está sempre pronta para receber os clientes com um serviço acolhedor, 
+                    garantindo que se sintam bem-vindos e confortáveis durante toda a sua visita.
+                  </p>
+                </div>
+              </div><!-- End Icon Box -->
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Why Us Section -->
+
+    <!-- ======= Stats Counter Section ======= -->
+    <section id="stats-counter" class="stats-counter">
+      <div class="container" data-aos="zoom-out">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="732" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Clientes</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="1578" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Pratos Servidos</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="175" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Dias Abertos</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+          <div class="col-lg-3 col-md-6">
+            <div class="stats-item text-center w-100 h-100">
+              <span data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="purecounter"></span>
+              <p>Trabalhadores</p>
+            </div>
+          </div><!-- End Stats Item -->
+
+        </div>
+
+      </div>
+    </section><!-- End Stats Counter Section -->
+
+    <!-- ======= Chefs Section ======= -->
+    <section id="chefs" class="chefs section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <p>Os Nossos <span>Profissionais</span></p>
+        </div>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="chef-member">
+              <div class="member-img">
+                <img src="../../static/img/chefs/chefs-1.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>José Correia</h4>
+                <span>Encarregado de Bar</span>
+                <p>
+                  Líder do nosso bar, o Encarregado de Bar supervisiona a equipa, garantindo um serviço de excelência e uma atmosfera animada, enquanto cria cocktails memoráveis.
+                </p>
+              </div>
+            </div>
+          </div><!-- End Chefs Member -->
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="chef-member">
+              <div class="member-img">
+                <img src="../../static/img/chefs/chefs-2.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Marlene Correia</h4>
+                <span>Chef de Cozinha</span>
+                <p>
+                  Responsável pela criação e execução dos pratos, a Chef de Cozinha lidera a equipa na preparação de refeições excecionais, elevando a experiência gastronómica dos nossos clientes.
+                </p>
+              </div>
+            </div>
+          </div><!-- End Chefs Member -->
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="chef-member">
+              <div class="member-img">
+                <img src="../../static/img/chefs/chefs-2.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Milene Martin</h4>
+                <span>Ajudante de Cozinha</span>
+                <p>
+                  Apoio crucial na cozinha, a Ajudante de Cozinha auxilia na preparação dos alimentos e na organização do espaço, contribuindo para que cada prato seja servido com perfeição.
+                </p>
+              </div>
+            </div>
+          </div><!-- End Chefs Member -->
+
+        </div>
+
+      </div>
+    </section><!-- End Chefs Section -->
+
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <p>Veja A <span>Nossa Galeria</span></p>
+        </div>
+
+        <div class="gallery-slider swiper">
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../static/img/cafe/CTE-1.JPG"><img src="../../static/img/cafe/CTE-1.JPG" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../static/img/cafe/CTE-2.JPG"><img src="../../static/img/cafe/CTE-2.JPG" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../static/img/cafe/CTE-3.JPG"><img src="../../static/img/cafe/CTE-3.JPG" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../static/img/cafe/CTE-4.JPG"><img src="../../static/img/cafe/CTE-4.JPG" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../static/img/cafe/CTE-5.JPG"><img src="../../static/img/cafe/CTE-5.JPG" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../static/img/cafe/CTE-6.JPG"><img src="../../static/img/cafe/CTE-6.JPG" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../static/img/cafe/CTE-7.JPG"><img src="../../static/img/cafe/CTE-7.JPG" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../static/img/cafe/CTE-8.JPG"><img src="../../static/img/cafe/CTE-8.JPG" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../static/img/cafe/CTE-9.JPG"><img src="../../static/img/cafe/CTE-9.JPG" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../static/img/cafe/CTE-10.JPG"><img src="../../static/img/cafe/CTE-10.JPG" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../static/img/cafe/CTE-11.JPG"><img src="../../static/img/cafe/CTE-11.JPG" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../static/img/cafe/CTE-JM.JPG"><img src="../../static/img/cafe/CTE-JM.JPG" class="img-fluid" alt=""></a></div>
+            <div class="swiper-slide"><a class="glightbox" data-gallery="images-gallery" href="../../static/img/cafe/CTE-RM.JPG"><img src="../../static/img/cafe/CTE-RM.JPG" class="img-fluid" alt=""></a></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Gallery Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div>
+            <h4>Morada</h4>
+            <p>
+              Rua do Bairro 33<br>
+              Santiago de Piães 4690-441 Cinfães<br>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Reservas</h4>
+            <p>
+              <strong>Tél:</strong> +351 919 203 490<br>
+              <strong>Email:</strong> ca.t.espero@gmail.com<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Horários</h4>
+            <p>
+              <strong>Seg-Sáb: </strong>09:00 - 23:00<br>
+              <strong>Domingo: </strong> 09:00 - 14:00
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Siga-nos</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Xpress</span></strong>. Todos direitos reservados
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../static/vendor/aos/aos.js"></script>
+  <script src="../../static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../../static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../../static/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../../static/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../../static/js/main.js"></script>
+
+</body>
+
+</html>

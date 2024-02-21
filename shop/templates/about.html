@@ -1,0 +1,283 @@
+
+<!-- Os nossos menus, confeitados pela Chef Marlene Correia e a sua equipa culinária, demonstram a cozinha tradicional de Cinfães, pratos que estão presentes desde os tempos dos nossos tetra-avós.
+A nossa lista de vinhos premiados é extensa e mundial, selecionada vigorosamente para entregar com qualidade e prestigio. Deixe nos guiar para os seus favoritos ou ajudar a descobrir novas variedades.
+Aberto para almoco e jantar, com cocktail bar e happy hour entre, o Cá T’Espero é um local perfeito para você se sentir em casa.
+Aqui você encontra o melhor do que tem em cima da mesa! -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-16">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Sobre Nós</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../../static/img/favicon.png" rel="icon">
+  <link href="../../static/img/x-logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Amatic+SC:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../static/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../../static/css/main.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-lg-0">
+        <img src="../../static/img/xpress-logo.png" alt="">
+        <!-- <h1>Xpress<span>.</span></h1> -->
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a href="{% url 'index' %}">Página Inicial</a></li>
+          <li><a href="{% url 'Menu' %}">O Nosso Menu</a></li>
+          <li><a href="{% url 'AboutUs' %}">Sobre Nós</a></li>
+          {% if user.is_authenticated %}
+            <li><a href="{% url 'Reserve' %}">Reservar Uma Mesa</a></li>
+            <li class="dropdown"><span>{{ user.username }}</span> <i class="bi bi-chevron-down dropdown-indicator"></i>
+              <ul>
+                <li><a href="{% url 'userProfile' %}">Perfil</a></li>
+                <li><a href="{% url 'Logout' %}">Logout</a></li>
+              </ul>
+            </li>
+          {% else %}
+            <a class="btn-book-a-table" href="{% url 'Login' %}">Login</a>
+          {% endif %}
+        </ul>
+      </nav><!-- .navbar -->
+
+      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <!-- <h2>About Us</h2> -->
+          <p>Saiba Mais <span>Sobre Nós</span></p>
+        </div>
+
+        <div class="row gy-4">
+          <div class="col-lg-7 position-relative about-img" style="background-image: url(../../static/img/about.jpg) ;" data-aos="fade-up" data-aos-delay="150">
+            <div class="call-us position-absolute">
+              <h4>Reserve Uma Mesa</h4>
+              <p>+351 919 203 490</p>
+            </div>
+          </div>
+          <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+            <div class="content ps-0 ps-lg-5">
+              <p class="fst-italic">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.
+              </p>
+              <ul>
+                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
+              </ul>
+              <p>
+                Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-header">
+          <p>Precisa de Ajuda? <span>Contacte-nos!</span></p>
+        </div>
+
+        <div class="mb-3">
+          <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d376.0282511779699!2d-8.155183020555455!3d41.06405211387409!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd249f48234c763b%3A0x8a4baab712d7df74!2sEM556-3%20194%2C%20Portugal!5e0!3m2!1spt-PT!2sfr!4v1707848945763!5m2!1spt-PT!2sfr" frameborder="0" allowfullscreen></iframe>
+        </div><!-- End Google Maps -->
+
+        <div class="row gy-4">
+
+          <div class="col-md-6">
+            <div class="info-item  d-flex align-items-center">
+              <i class="icon bi bi-map flex-shrink-0"></i>
+              <div>
+                <h3>A Nossa Morada</h3>
+                <p>Rua do Bairro 33, Santiago de Piães 4690-441 Cinfães</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-6">
+            <div class="info-item d-flex align-items-center">
+              <i class="icon bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h3>Envie Um Email</h3>
+                <p>ca.t.espero@gmail.com</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-6">
+            <div class="info-item  d-flex align-items-center">
+              <i class="icon bi bi-telephone flex-shrink-0"></i>
+              <div>
+                <h3>Ligue-nos</h3>
+                <p>+351 919 203 490</p>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+          <div class="col-md-6">
+            <div class="info-item  d-flex align-items-center">
+              <i class="icon bi bi-share flex-shrink-0"></i>
+              <div>
+                <h3>Horários</h3>
+                <div><strong>Seg-Sáb:</strong> 09:00 - 23:00
+                  <strong>Domingo:</strong> 09:00 - 14:00
+                </div>
+              </div>
+            </div>
+          </div><!-- End Info Item -->
+
+        </div>
+
+        <form action="{% url 'ContactUs' %}" method="post" role="form" class="php-email-form p-3 p-md-4">
+          {% csrf_token %}
+          <div class="row">
+            <div class="col-xl-6 form-group">
+              <input type="text" name="name" class="form-control" id="name" placeholder="Nome" required>
+            </div>
+            <div class="col-xl-6 form-group">
+              <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="subj" id="subject" placeholder="Assunto" required>
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" name="desc" rows="5" placeholder="Mensagem" required></textarea>
+          </div>
+          {% if messages %}
+            <div class="messages">
+              {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          <div class="text-center"><button type="submit">Enviar Mensagem</button></div>
+        </form><!--End Contact Form -->
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div>
+            <h4>Morada</h4>
+            <p>
+              Rua do Bairro 33<br>
+              Santiago de Piães 4690-441 Cinfães<br>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Reservas</h4>
+            <p>
+              <strong>Tél:</strong> +351 919 203 490<br>
+              <strong>Email:</strong> ca.t.espero@gmail.com<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Horários</h4>
+            <p>
+              <strong>Seg-Sáb: </strong>09:00 - 23:00<br>
+              <strong>Domingo: </strong> 09:00 - 14:00
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 footer-links">
+          <h4>Siga-nos</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Xpress</span></strong>. Todos direitos reservados
+      </div>
+    </div>
+
+  </footer><!-- End Footer -->
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../static/vendor/aos/aos.js"></script>
+  <script src="../../static/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../../static/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../../static/vendor/swiper/swiper-bundle.min.js"></script>
+  <!-- <script src="../../static/vendor/php-email-form/validate.js"></script> -->
+
+  <!-- Template Main JS File -->
+  <script src="../../static/js/main.js"></script>
+
+</body>
+
+</html>
