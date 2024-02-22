@@ -11,6 +11,9 @@ class Reservation(models.Model):
     num_people = models.IntegerField()
     message = models.TextField(blank=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Contact(models.Model):
     msg_id = models.AutoField(primary_key=True)
